@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from 'src/app/shared/models/Movie';
 import { MovieService } from 'src/app/core/services/movie.service';
@@ -10,7 +10,7 @@ import { MovieService } from 'src/app/core/services/movie.service';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  movie!: Movie;
+  @Input() movie!: Movie;
 
   constructor(private activeRoute: ActivatedRoute, private movieService: MovieService) { }
 

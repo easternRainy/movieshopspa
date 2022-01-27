@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Cast } from 'src/app/shared/models/Cast';
 
 @Component({
   selector: 'app-cast-details',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CastDetailsComponent implements OnInit {
 
+  @Input() cast!: Cast;
   constructor() { }
 
   ngOnInit(): void {
