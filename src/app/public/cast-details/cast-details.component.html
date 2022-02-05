@@ -1,5 +1,7 @@
 <!-- <p>cast-details works!</p> -->
 
-<div>
-    {{ cast.name }}
-</div>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><img src="{{ cast.profilePath }}" style="width:7%;" class="bg-info rounded-circle"/></li>
+    <li class="list-group-item"> {{ cast.name }} </li>
+    <li class="list-group-item"> {{ cast.character }} </li>
+</ul>

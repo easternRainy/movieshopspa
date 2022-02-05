@@ -1,30 +1,47 @@
-<header class="p-2 bg-dark bg-gradient text-white text-uppercase">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/"
-                class="navbar-brand d-flex align-items-center mb-2 mb-lg-0 text-white text-uppercase text-decoration-none">
-                Movie Shop
-            </a>
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" [routerLink]="['/']">MovieShopMVC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+                    </li>
+                    
+                    <button class="btn btn-secondary btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                         Genres
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    </button>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Dropdown button
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Features</a>
-                </li>
+                    
 
-            </ul>
+                    <div class="text-end"  *ngIf="!isLoginSuccess" >
+                        <a class=" btn btn-primary me-2" [routerLink]="['/account/login']" > Login </a>
+                        <a class=" btn btn-primary me-2" [routerLink]="['/account/register']" > Register </a>
+                
+                    </div>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-            </form>
+                    <div class="" *ngIf="isLoginSuccess" >
+                        <span  > {{ user.given_name}}  </span> 
+                        <span  > {{ user.family_name}}  </span> 
+                    </div>
 
+               </ul>
+               <!-- <partial name="_Log<inInfo" /> -->
+            </div>
         </div>
-    </div>
-
+    </nav>
 </header>

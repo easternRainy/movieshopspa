@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,7 @@ import { MovieDetailsComponent } from './public/movie-details/movie-details.comp
 import { CastDetailsComponent } from './public/cast-details/cast-details.component';
 import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
 import { HeaderComponent } from './core/layout/header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,13 @@ import { HeaderComponent } from './core/layout/header/header.component';
   ],
   imports: [
     // reference: https://stackoverflow.com/questions/47214534/nullinjectorerror-no-provider-for-compiler
+    
     BrowserModule,
     AppRoutingModule,
-    AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    // FontAwesomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,52 @@
-<p>movie-details works!</p>
 
-<div>
-    {{ movie.title }}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="{{ movie.posterUrl }}" alt="Movie Poster Not Found">
+        </div>
+
+        <div class="col">
+            <h2> {{ movie.title }} </h2>
+            <h6>
+                {{ movie.runTime }} m | {{ movie.releasedate }}
+
+                <div *ngFor="let genre of movie.genres"> {{ genre.name }} </div>
+            </h6>
+
+            <p> {{ movie.overview }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            Movie Facts
+            <ul class="list-group">
+                <li class="list-group-item">Release Date <span class="badge bg-secondary"> {{ movie.releasedate }} </span></li>
+                <li class="list-group-item">Run Time <span class="badge bg-secondary"> {{ movie.runTime }} m</span></li>
+                <li class="list-group-item">Box Office <span class="badge bg-secondary">$ {{ movie.revenue }}</span></li>
+                <li class="list-group-item">Budget <span class="badge bg-secondary"> {{ movie.budget }} </span></li>
+            </ul>
+
+            <div *ngFor="let trailer of movie.trailers">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="{{ trailer.trailerUrl }}"> {{ trailer.name }} </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col">
+            Casts 
+
+            <div *ngFor="let cast of movie.casts">
+                <app-cast-details [cast]="cast"></app-cast-details>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 <div class="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let cast of movie.casts">
     
-    <app-cast-details [cast]="cast">
-
-    </app-cast-details>
+    
 </div>
