@@ -14,6 +14,9 @@ export class GenreService {
 
   getAllGenres(): Observable<Genre[]> {
     // not tested yet
-    return this.http.get<Genre[]>(`${environment.apiBaseUrl}genres`)
+    var allGenres = this.http.get<Genre[]>(`${environment.apiBaseUrl}Genres`);
+    // console.log(allGenres);
+    
+    return allGenres;
   }
 }

@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       m => {
         this.movieCards = m;
         console.log('inside the home component OnInit method');
-        console.table(this.movieCards);  
+        // console.table(this.movieCards);  
       }
     )
   }

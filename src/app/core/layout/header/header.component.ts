@@ -18,9 +18,20 @@ export class HeaderComponent implements OnInit {
   constructor(private genreService: GenreService, private accountService: AccountService) { 
     this.accountService.isLoggedIn.subscribe( resp => this.isLoginSuccess = resp );
     this.accountService.currentUser.subscribe( resp => this.user == resp );
+    
+    
+    // this.genres = [{id:1, name: "Action"}, {id:2, name: "Romantic"}];
   }
 
   ngOnInit(): void {
+    console.log("loading genres");
+    this.genreService.getAllGenres().subscribe( 
+      resp => {
+        this.genres = resp;
+        console.log("inside Header Component OnInit");
+      }
+    );
+    console.log(this.genres);
   }
 
 }

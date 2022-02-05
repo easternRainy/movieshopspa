@@ -85,8 +85,8 @@ export class AccountService {
 
       const decodedToken = this.jwtHelper.decodeToken(token);
       
-      console.log("inside the decode method");
-      console.log(decodedToken);
+      // console.log("inside the decode method");
+      // console.log(decodedToken);
 
       this.isLoggedInSubject.next(true);
 
