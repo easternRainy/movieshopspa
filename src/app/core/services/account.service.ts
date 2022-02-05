@@ -32,35 +32,35 @@ export class AccountService {
     // JWT => if success, store the JWT in local storage
     
     // map is similar to LINQ select
-    return this.http.post(`${environment.apiBaseUrl}/account/login`, userLogin)
+    return this.http.post(`${environment.apiBaseUrl}account/login`, userLogin)
     .pipe(
       map( (response: any) => {
           // if the status code is 200, 201
           // save the response to local storage (JWT)
+          console.log("inside Account Service: Login");
+          console.log(response);
           if (response) {
             localStorage.setItem('token', response.token);
             this.populateUserInfo();
             return true;
           }
-          
           return false;
-          
         } 
-        
       )
     );
   }
 
   register(userRegister: Register): Observable<boolean> {
     // take the object from register component and post it to API
-    return this.http.post(`${environment.apiBaseUrl}/account/register`, userRegister)
+    return this.http.post(`${environment.apiBaseUrl}account/register`, userRegister)
     .pipe(
       map(
         (response: any) => {
+          console.log("inside Account Service: Register");
+          console.log(response);
           if (response) {
             return true;
           }
-
           return false;
         }
       )

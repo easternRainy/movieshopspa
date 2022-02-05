@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
           console.log('login success');
           this.router.navigateByUrl('/');
         }
-        return false;
+
+        this.router.navigateByUrl('/');
+        // return false;
       }
     );
   }

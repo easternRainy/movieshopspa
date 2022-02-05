@@ -32,7 +32,8 @@ export class RegisterComponent implements OnInit {
           this.router.navigateByUrl('/');
         }
 
-        return false;
+        this.router.navigateByUrl('/');
+        // return false;
       }
     );
   }
