@@ -39,4 +39,11 @@ export class HeaderComponent implements OnInit {
     console.log(this.genres);
   }
 
+  logout(): void {
+    console.log("logging out");
+    localStorage.removeItem("token");
+    this.isLoginSuccess = false;
+    
+  }
+
 }
