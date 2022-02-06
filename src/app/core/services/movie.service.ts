@@ -25,4 +25,10 @@ export class MovieService {
     return this.http.get<Movie>(`${environment.apiBaseUrl}movies/${id}`);
   }
 
+  getMoviesOfGenre(id: number): Observable<Object> {
+    var pagedResults =  this.http.get<Object>(`${environment.apiBaseUrl}movies/genre/${id}`);
+    console.log(pagedResults);
+    return pagedResults;
+  }
+
 }

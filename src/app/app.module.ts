@@ -12,6 +12,7 @@ import { CastDetailsComponent } from './public/cast-details/cast-details.compone
 import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
 import { HeaderComponent } from './core/layout/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MoviesOfGenreComponent } from './shared/components/movies-of-genre/movies-of-genre.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MovieDetailsComponent,
     CastDetailsComponent,
     MovieCardComponent,
-    HeaderComponent
+    HeaderComponent,
+    MoviesOfGenreComponent
   ],
   imports: [
     // reference: https://stackoverflow.com/questions/47214534/nullinjectorerror-no-provider-for-compiler

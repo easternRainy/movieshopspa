@@ -42,6 +42,7 @@ export class AccountService {
           if (response) {
             localStorage.setItem('token', response.token);
             this.populateUserInfo();
+            
             return true;
           }
           return false;
@@ -91,7 +92,21 @@ export class AccountService {
       this.isLoggedInSubject.next(true);
 
       // set the user subject with decoded value
-      this.currentUserSubject.next(decodedToken);
+      // console.log("inside account service, here is the decoded token " + JSON.stringify(decodedToken) );
+      var tokenStr = JSON.stringify(decodedToken);
+      var tokenJson = JSON.parse(tokenStr);
+
+      var user = {
+        email: tokenJson.email,
+        exp: tokenJson.exp,
+        family_name: tokenJson.family_name,
+        given_name: tokenJson.given_name,
+        birthdate: tokenJson.birthdate,
+        nameid: tokenJson.nameid,
+        role: []
+      }
+      console.log(user);
+      this.currentUserSubject.next(user);
 
     }
   }

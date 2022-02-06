@@ -18,7 +18,7 @@
                           Genres
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li *ngFor="let genre of genres"> <a class="dropdown-item" href="#"> {{ genre.name }} </a> </li>
+                            <li *ngFor="let genre of genres"> <a class="dropdown-item" [routerLink]="['/movies/genre', genre.id]"> {{ genre.name }} </a> </li>
                         </ul>
                     </div>
                     
@@ -30,12 +30,24 @@
                     </div>
 
                     <div class="" *ngIf="isLoginSuccess" >
-                        <span  > {{ user.given_name}}  </span> 
-                        <span  > {{ user.family_name}}  </span> 
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ user.given_name }} {{ user.family_name }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                <li><a class="dropdown-item" [routerLink]="['/']"> Purchases </a></li>
+                                <li><a class="dropdown-item" [routerLink]="['/']"> Favorites </a></li>
+                                <li><a class="dropdown-item" [routerLink]="['/']"> Account </a></li>
+                                <li><a class="dropdown-item" [routerLink]="['/']"> View Profile </a></li>
+                                <li><a class="dropdown-item" [routerLink]="['/']"> Edit Profile </a></li>
+                                <li><a class="dropdown-item" [routerLink]="['/']"> Logout </a></li>
+                            </ul>
+                        </div>
                     </div>
 
                </ul>
-               <!-- <partial name="_Log<inInfo" /> -->
+               
             </div>
         </div>
     </nav>
