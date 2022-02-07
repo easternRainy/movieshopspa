@@ -1,99 +1,106 @@
 
 <div class="container" id="movieDetails">
 
-    <div class="row" id="posterAndIntroduction">
-        <div class="col-sm-4" id="posterImage">
-            <img src="{{ movie.posterUrl }}" width=230 alt="Movie Poster Not Found">
-        </div>
-        <div class="col-sm-7" id="moiveIntroduction">
-            <h2> {{ movie.title }} </h2>
-            <div>
-                <div style="display: inline-block; padding-right: 6px" *ngFor="let genre of movie.genres"> 
-                    <span class="badge bg-secondary"  [routerLink]="['/movies/genre', genre.id]"> {{ genre.name }} </span> 
+    <div class="masthead">
+        <div class="row" id="posterAndIntroduction">
+            <div class="col-sm-4" id="posterImage">
+                <img src="{{ movie.posterUrl }}" width=230 alt="Movie Poster Not Found">
+            </div>
+            <div class="col-sm-7" id="moiveIntroduction">
+                <br>
+                <br>
+                <h2 class="display-6" style="color: white"> {{ movie.title }} </h2>
+                <div>
+                    <div style="display: inline-block; padding-right: 6px" *ngFor="let genre of movie.genres"> 
+                        <span class="badge bg-secondary"  [routerLink]="['/movies/genre', genre.id]"> {{ genre.name }} </span> 
+                    </div>
+                    <br>
+                    <div style="display: inline-block; padding-right: 6px">
+                        <span class="badge bg-light text-dark"> Favorite this movie </span> 
+                        <span class="badge bg-light text-dark"> Purchase this movie </span> 
+                        <span class="badge bg-light text-dark"> Write a Review </span>
+                    </div>
+                    
                 </div>
                 <br>
-                <div style="display: inline-block; padding-right: 6px">
-                    <span class="badge bg-light text-dark"> Favorite this movie </span> 
-                    <span class="badge bg-light text-dark"> Purchase this movie </span> 
-                    <span class="badge bg-light text-dark"> Write a Review </span>
-                </div>
-                
+    
+                <link rel="preconnect" href="https://fonts.googleapis.com"> 
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+                <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+                <div style="color: white; font-family:'Dancing Script', cursive"> {{ movie.overview }}</div>
             </div>
-            <br>
-            <div> {{ movie.overview }}</div>
         </div>
-
-        
-
     </div>
+    
     
     <br>
 
     <div class="row">
-        <div class="col-4">
-            <h3>Movie Facts</h3>
-            <hr>
+        <div class="col-5">
+            <!-- <h3 class="display-6">Movie Facts</h3> -->
+            <br>
 
             <div class="row">
-                <div class="col-sm-7">
-                    Rating
+                <div class="col-sm-3">
+                    <p class="badge bg-light text-dark"> Rating</p>
                 </div>
                 <div class="col-sm-5">
                     <span class="badge bg-success" color="gold"> 9.9 </span>
                 </div>
             </div>
 
-            <hr>
+            <br>
 
 
             <div class="row" id="releaseDate">
-                <div class="col-sm-7">
-                    Release Date
+                <div class="col-sm-3">
+                    <p class="badge bg-light text-dark">Release Date</p>
                 </div>  
                 <div class="col-sm-5">
-                    <span class="badge bg-secondary"> {{ movie.releasedate.substring(0,10) }} </span>
+                    <span class="badge bg-light text-dark"> {{ movie.releasedate.substring(0,10) }} </span>
                 </div>
             </div>
-            <hr>
+            <br>
             <div class="row">
-                <div class="col-sm-7" id="runTime">
-                    Run Time
+                <div class="col-sm-3" id="runTime">
+                    <p class="badge bg-light text-dark"> Run Time</p>
                 </div>
                 <div class="col-sm-5">
-                    <span class="badge bg-secondary"> {{ movie.runTime }} m</span>
+                    <span class="badge bg-light text-dark"> {{ movie.runTime }} m</span>
                 </div>
             </div>
-            <hr>
+            <br>
             <div class="row" id="revenue">
-                <div class="col-sm-7">
-                    Revenue
+                <div class="col-sm-3">
+                    <p class="badge bg-light text-dark">Revenue</p>
                 </div>
                 <div class="col-sm-5">
-                    <span class="badge bg-secondary">$ {{ movie.revenue }}</span>
+                    <span class="badge bg-light text-dark">$ {{ (movie.revenue / 1000000) - (movie.revenue % 1000000)/1000000 }} M </span>
                 </div>
             </div>
-            <hr>
+            <br>
             <div class="row">
-                <div class="col-sm-7">
-                    Budget
+                <div class="col-sm-3">
+                    <p class="badge bg-light text-dark">Budge</p>
                 </div>
                 <div class="col-sm-5">
-                    <span class="badge bg-secondary">$ {{ movie.budget }} </span>
+                    <span class="badge bg-light text-dark">$ {{ (movie.budget / 1000000) - (movie.budget % 1000000)/1000000 }} M</span>
                 </div>
             </div>
-            <hr>
+            <br>
             <div *ngFor="let trailer of movie.trailers">
-                <div class="col-sm-7">
-                    <a href="{{ trailer.trailerUrl }}"> {{ trailer.name }} </a>
+                <div class="col-sm-3">
+                    <a class="badge bg-light text-dark" href="{{ trailer.trailerUrl }}"> {{ trailer.name }} </a>
+                    
                 </div>
-                <hr>
+                <br>
             </div>
         </div>
 
 
-        <div class="col-7" id="casts">
-            <h3>Casts </h3>
-            <hr>
+        <div class="col-6" id="casts">
+            <!-- <h3 class="display-6">Casts </h3> -->
+            <br>
             <div *ngFor="let cast of movie.casts">
                 <app-cast-details [cast]="cast"></app-cast-details>
             </div>
