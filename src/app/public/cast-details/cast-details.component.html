@@ -1,7 +1,23 @@
 <!-- <p>cast-details works!</p> -->
 
-<ul class="list-group list-group-horizontal">
-    <li class="list-group-item"><img src="{{ cast.profilePath }}" style="width:7%;" class="bg-info rounded-circle"/></li>
-    <li class="list-group-item"> {{ cast.name }} </li>
-    <li class="list-group-item"> {{ cast.character }} </li>
-</ul>
+<!-- <ul class="list-group list-group-horizontal">
+    <li class="list-group-item"></li>
+    <li class="list-group-item">  </li>
+    <li class="list-group-item">  </li>
+</ul> -->
+
+<div class="container-sm-6">
+    <div class="row">
+        <div class="col-sm-2"> 
+            <img src="{{ cast.profilePath }}" style="width:40%;height:70%" class="bg-info rounded-circle"/>
+        </div>
+        
+        <div class="col-sm-5">
+            <a href="{{ cast.tmdbUrl }}"> {{ cast.name }} </a>
+        </div>
+        <div class="col-sm-5">
+            {{ cast.character }}
+        </div>
+    </div>
+    <hr>
+</div>

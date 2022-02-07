@@ -1,42 +1,89 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <img src="{{ movie.posterUrl }}" alt="Movie Poster Not Found">
+<div class="container" id="movieDetails">
+
+    <div class="row" id="posterAndIntroduction">
+        <div class="col-sm-5" id="posterImage">
+            <img src="{{ movie.posterUrl }}" width=230 alt="Movie Poster Not Found">
         </div>
-
-        <div class="col">
+        <div class="col-sm-5" id="moiveIntroduction">
             <h2> {{ movie.title }} </h2>
-            <h6>
-                {{ movie.runTime }} m | {{ movie.releasedate }}
-
-                <div *ngFor="let genre of movie.genres"> {{ genre.name }} </div>
-            </h6>
-
-            <p> {{ movie.overview }}</p>
+            <div>
+                <div style="display: inline-block; padding-right: 6px" *ngFor="let genre of movie.genres"> 
+                    <span class="badge bg-secondary"  [routerLink]="['/movies/genre', genre.id]"> {{ genre.name }} </span> 
+                </div>
+            </div>
+            <br>
+            <div> {{ movie.overview }}</div>
         </div>
     </div>
+    
+    <br>
 
     <div class="row">
-        <div class="col">
-            Movie Facts
-            <ul class="list-group">
-                <li class="list-group-item">Release Date <span class="badge bg-secondary"> {{ movie.releasedate }} </span></li>
-                <li class="list-group-item">Run Time <span class="badge bg-secondary"> {{ movie.runTime }} m</span></li>
-                <li class="list-group-item">Box Office <span class="badge bg-secondary">$ {{ movie.revenue }}</span></li>
-                <li class="list-group-item">Budget <span class="badge bg-secondary"> {{ movie.budget }} </span></li>
-            </ul>
+        <div class="col-6">
+            <h3>Movie Facts</h3>
+            <hr>
 
+            <div class="row">
+                <div class="col-sm-9">
+                    Rating
+                </div>
+                <div class="col-sm-3">
+                    <span class="badge bg-success" color="gold"> 9.9 </span>
+                </div>
+            </div>
+
+            <hr>
+
+
+            <div class="row" id="releaseDate">
+                <div class="col-sm-9">
+                    Release Date
+                </div>  
+                <div class="col-sm-3">
+                    <span class="badge bg-secondary"> {{ movie.releasedate.substring(0,10) }} </span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-9" id="runTime">
+                    Run Time
+                </div>
+                <div class="col-sm-3">
+                    <span class="badge bg-secondary"> {{ movie.runTime }} m</span>
+                </div>
+            </div>
+            <hr>
+            <div class="row" id="revenue">
+                <div class="col-sm-9">
+                    Revenue
+                </div>
+                <div class="col-sm-3">
+                    <span class="badge bg-secondary">$ {{ movie.revenue }}</span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-9">
+                    Budget
+                </div>
+                <div class="col-sm-3">
+                    <span class="badge bg-secondary">$ {{ movie.budget }} </span>
+                </div>
+            </div>
+            <hr>
             <div *ngFor="let trailer of movie.trailers">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="{{ trailer.trailerUrl }}"> {{ trailer.name }} </a></li>
-                </ul>
+                <div class="col-sm-9">
+                    <a href="{{ trailer.trailerUrl }}"> {{ trailer.name }} </a>
+                </div>
+                <hr>
             </div>
         </div>
 
-        <div class="col">
-            Casts 
 
+        <div class="col-6" id="casts">
+            <h3>Casts </h3>
+            <hr>
             <div *ngFor="let cast of movie.casts">
                 <app-cast-details [cast]="cast"></app-cast-details>
             </div>
@@ -45,8 +92,3 @@
 </div>
 
 
-
-<div class="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let cast of movie.casts">
-    
-    
-</div>

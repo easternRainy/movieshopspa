@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" [routerLink]="['/']">MovieShopMVC</a>
+            <a class="navbar-brand" [routerLink]="['/']">Movie Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -12,9 +12,9 @@
                         <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
                     </li>
                     
-
+                    
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary me-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                           Genres
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -22,10 +22,11 @@
                         </ul>
                     </div>
                     
+                    
 
                     <div class="text-end"  *ngIf="!isLoginSuccess" >
-                        <a class=" btn btn-primary me-2" [routerLink]="['/account/login']" > Login </a>
-                        <a class=" btn btn-primary me-2" [routerLink]="['/account/register']" > Register </a>
+                        <a class=" btn btn-secondary me-2" [routerLink]="['/account/login']" > Login </a>
+                        <a class=" btn btn-secondary me-2" [routerLink]="['/account/register']" > Register </a>
                 
                     </div>
 
